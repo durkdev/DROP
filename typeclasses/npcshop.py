@@ -24,10 +24,13 @@ def menunode_shopfront(caller):
     text = "*** Welcome to %s! ***\n" % shopname
     if wares: 
         text += "   Things for sale (chose 1-%i to inspect);" \
-                " quit to exit:" % len(wares)
+                " [q]uit to exit:" % len(wares)
+        # this relies on the built in 'quit' command.
 
     else:
         text += "   There is nothing for sale; quit to exit."
+
+    text += "\n   This is working ~j3b"
     
     options = []
     for ware in wares:
@@ -35,15 +38,32 @@ def menunode_shopfront(caller):
         options.append({"desc": "%s (%s gold)" %
                             (ware.key, ware.db.gold_value or 1),
                         "goto": "menunode_inspect_and_buy"})
+    options.append({"key": "think",
+                    "goto": "nowhere"})
     return text, options
 
 # next menu node
+
+def menunode_consider_quit(caller):
+    """
+    Where you can consider the recent results before continuing 
+    to shop or quit.
+    """
+    text = "Whatcha gonna do now?"
+
+    options = ({"key": ("continue shopping", "c"),
+                "desc": "review list of goods",
+                "goto": "menunode_shopfront"},
+               {"key": ("quit", "q")})
+
+    return text, options
 
 
 def menunode_inspect_and_buy(caller, raw_string):
     "Sets up the buy menu screen."
 
     wares = caller.location.db.storeroom.contents
+    # remove the door
     wares = [ware for ware in wares if ware.key.lower() != "door"]
     iware = int(raw_string) - 1
     ware = wares[iware]
@@ -62,16 +82,21 @@ def menunode_inspect_and_buy(caller, raw_string):
             rtext = "You cannot afford %i gold for %s!" % \
                     (value, ware.key)
         caller.msg(rtext)
+        return "menunode_consider_quit"
 
-options = ({"desc": "Buy %s for %s gold" % \
-                    (ware.key, ware.db.gold_value or 1),
-            "goto": "menunode_shopfront",
-            "exec": buy_ware_result},
-            {"desc": "Look for something else",
-             "goto": "menunode_shopfromt"})
+    options = ({"desc": "Buy %s for %s gold" % \
+                        (ware.key, ware.db.gold_value or 1),
+                "goto": "menunode_shopfront",
+                "exec": buy_ware_result},
+                {"desc": "Look for something else",
+                 "goto": "menunode_shopfront"})
 
-return text, options
+    return text, options
 
+def nowhere(caller, raw_string):
+    "Nothing happens here except proof that something works"
+    text = "You're going nowhere, a little faster now."
+    return text
 # Character command
 
 from evennia import Command
@@ -138,7 +163,7 @@ class CmdBuildShop(Command):
     """
     key = "buildshop"
     locks = "cmd:perm(Builders)"
-    help_category = "Builders"
+    help_category = "Building"
 
     def func(self):
         "Create the shop rooms"
@@ -170,7 +195,7 @@ class CmdBuildShop(Command):
                                       key=storeroom_key_name,
                                       location=shop)
         # only allow chars with this key to enter the store room
-        shop_exit.locks.add("traverse:holds(%s)" % storeroom_key_name,
+        shop_exit.locks.add("traverse:holds(%s)" % storeroom_key_name)
         
         #inform the builder about progress
         self.caller.msg("The shop %s was created!" % shop)
