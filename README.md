@@ -11,8 +11,9 @@ This is a very rough to do list.  Feel free to edit and format in ways to indica
   A pure instanced Dungeron; see [How to Dungeon](./DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
   This will require me to re-learn evmenu.
   
-  1. Complete the NPC shop evmenu tutorial.
+  1. Complete the NPC shop evmenu tutorial. DONE
       1. tweak the NPC shop to be usable in the game for buying gear and selling off dungeon loot.
+      2. add a "sell" command that turns the players inventory into a stockroom and adds an offer price to each item.
   1. Use evmenu knowledge to build menu based combat in a linear Dungeon
       1. Dungeon choices are only continue or backtrack
       2. Dungeon feature is only monster or nothing
