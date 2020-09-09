@@ -35,14 +35,72 @@ def menunode_shopfront(caller):
     options = []
     for ware in wares:
         # add an option for every ware in store
-        options.append({"desc": "%s (%s gold)" %
+        options.append({"desc": "%s (%s gold)" % \
                             (ware.key, ware.db.gold_value or 1),
                         "goto": "menunode_inspect_and_buy"})
-    options.append({"key": "think",
-                    "goto": "nowhere"})
+    options.append({"key": "Sell",
+                    "desc": "Offer your own goods to the store for gold",
+                    "goto": "menunode_sell_list"})
     return text, options
 
 # next menu node
+def menunode_sell_list(caller):
+    """
+    A node for selling the caller player's inventory to the shop.
+    """
+    inventory = caller.contents
+
+    # This includes everything the character has picked up
+    # value and sellability can be set in the typeclass or
+    # object creation later
+    text = "    You have"
+
+    if inventory:
+        text += " the following goods to sell;" \
+                " 'back' to return to main storefront."
+    else:
+        text += " nothing to sell;" \
+                " 'back' to return to main storefront."
+
+    options = []
+
+    if inventory:
+        for item in inventory:
+            # add option for every item in inventory
+            options.append({"desc": "sell %s for  %s gold" % \
+                            (item.key, item.db.gold_value or 1),
+                            "goto": "menunode_close_sale"})
+
+    options.append({"key": "back", "goto": "menunode_shopfront"})
+    return text, options
+
+
+def menunode_close_sale(caller, raw_string):
+    "Ask's the player to confirm the sale"
+    inventory = caller.contents
+    iitem = int(raw_string) - 1
+    item = inventory[iitem]
+    value = item.db.gold_value or 1
+    # shops have infinite funds right now
+    text = "You will receive %i gold pieces if you sell %s. Okay?" % \
+            (value, item.key)
+
+    def sell_item_result(caller):
+        "executed if sale closes. necessary?"
+        rtext = "The shop takes your %s for %i gold." % (item.key, value)
+        caller.db.gold += value
+        item.move_to(caller.location.db.storeroom)
+        caller.msg(rtext)    
+        return "menunode_sell_list"
+
+    options = ({"key": ("Yes", "yes", "y"),
+                "goto": "menunode_sell_list",
+                "exec": sell_item_result},
+               {"key": ("No", "no", "n"),
+                "goto": "menunode_sell_list"})
+
+    return text, options
+    
 
 def menunode_consider_quit(caller):
     """
@@ -54,7 +112,7 @@ def menunode_consider_quit(caller):
     options = ({"key": ("continue shopping", "c"),
                 "desc": "review list of goods",
                 "goto": "menunode_shopfront"},
-               {"key": ("quit", "q")})
+               {"key": ("quit shopping", "q", "quit")})
 
     return text, options
 
