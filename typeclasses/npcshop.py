@@ -30,15 +30,13 @@ def menunode_shopfront(caller):
     else:
         text += "   There is nothing for sale; quit to exit."
 
-    text += "\n   This is working ~j3b"
-    
     options = []
     for ware in wares:
         # add an option for every ware in store
         options.append({"desc": "%s (%s gold)" % \
                             (ware.key, ware.db.gold_value or 1),
                         "goto": "menunode_inspect_and_buy"})
-    options.append({"key": "Sell",
+    options.append({"key": ("Sell", "s"),
                     "desc": "Offer your own goods to the store for gold",
                     "goto": "menunode_sell_list"})
     return text, options
@@ -68,10 +66,12 @@ def menunode_sell_list(caller):
         for item in inventory:
             # add option for every item in inventory
             options.append({"desc": "sell %s for  %s gold" % \
-                            (item.key, item.db.gold_value or 1),
+                            (item.key, (item.db.gold_value or 0) // 2 ),
                             "goto": "menunode_close_sale"})
 
-    options.append({"key": "back", "goto": "menunode_shopfront"})
+    options.append({"key": ("back", "b"), 
+                    "desc": "Return to buyers menu",
+                    "goto": "menunode_shopfront"})
     return text, options
 
 
@@ -80,7 +80,7 @@ def menunode_close_sale(caller, raw_string):
     inventory = caller.contents
     iitem = int(raw_string) - 1
     item = inventory[iitem]
-    value = item.db.gold_value or 1
+    value = (item.db.gold_value or 0) // 2
     # shops have infinite funds right now
     text = "You will receive %i gold pieces if you sell %s. Okay?" % \
             (value, item.key)
@@ -109,10 +109,10 @@ def menunode_consider_quit(caller):
     """
     text = "Whatcha gonna do now?"
 
-    options = ({"key": ("continue shopping", "c"),
+    options = ({"key": ("continue shopping", "c", "cont"),
                 "desc": "review list of goods",
                 "goto": "menunode_shopfront"},
-               {"key": ("quit shopping", "q", "quit")})
+               {"key": ("Q", "q", "quit")})
 
     return text, options
 
@@ -140,7 +140,7 @@ def menunode_inspect_and_buy(caller, raw_string):
             rtext = "You cannot afford %i gold for %s!" % \
                     (value, ware.key)
         caller.msg(rtext)
-        return "menunode_consider_quit"
+        return "menunode_shopfront"
 
     options = ({"desc": "Buy %s for %s gold" % \
                         (ware.key, ware.db.gold_value or 1),
