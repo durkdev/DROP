@@ -14,6 +14,8 @@ This is a very rough to do list.  Feel free to edit and format in ways to indica
   1. Complete the NPC shop evmenu tutorial. DONE
       1. tweak the NPC shop to be usable in the game for buying gear and selling off dungeon loot.
       2. add a "sell" command that turns the players inventory into a stockroom and adds an offer price to each item.
+        1. evemenu of personal inventory [done]
+        2. sell value is half of buy cost
   1. Use evmenu knowledge to build menu based combat in a linear Dungeon
       1. Dungeon choices are only continue or backtrack
       2. Dungeon feature is only monster or nothing
