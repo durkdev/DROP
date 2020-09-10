@@ -1,7 +1,7 @@
 # Welcome to Dungeon Rip-off Plus+!
 
 We will have FISHING!! Tricks, traps and deadly Rock Paper Scissors dueling.
-Stay tuned.
+Stay tuned.  Also there is some discussion in the [Wiki](https://github.com/durkdev/DROP/wiki).  Should we continue to use the Wiki for idea development?
 
 For a detailed specification see files in the [DOCS/DESIGN](./DOCS/DESIGN/).
 
@@ -11,7 +11,7 @@ Ideas for design directions as well as creative content for the future game can 
 This is a very rough to do list.  Feel free to edit and format in ways to indicate interest/objection help set priorities etc. If this gets messy we can switch to using other tools to track todo.  But in the meantime feel free to track other micro projects here following the example below.
 
 ## Create an EvMenu Dungeon
-  A pure instanced Dungeon; see [How to Dungeon](./DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
+  A pure instanced Dungeon; see [How to Dungeon](./DOCS/DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
   This will require me to re-learn evmenu.
   
   1. [X] Complete the NPC shop evmenu tutorial. (Finished for this stage.)
