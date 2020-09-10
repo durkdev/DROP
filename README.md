@@ -10,7 +10,7 @@ Ideas for design directions as well as creative content for the future game can 
 # Current Todo list. 
 This is a very rough to do list.  Feel free to edit and format in ways to indicate interest/objection help set priorities etc. If this gets messy we can switch to using other tools to track todo.  But in the meantime feel free to track other micro projects here following the example below.
 
-## Create an EvMenu Dungeon
+## [ ] Create an minimal example EvMenu Dungeon
   A pure instanced Dungeon; see [How to Dungeon](./DOCS/DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
   This will require me to re-learn evmenu.
   
