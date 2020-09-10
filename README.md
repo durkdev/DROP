@@ -3,10 +3,12 @@
 We will have FISHING!! Tricks, traps and deadly Rock Paper Scissors dueling.
 Stay tuned.
 
-For a detailed specification see files in the [DESIGN folder](./DESIGN/).
+For a detailed specification see files in the [DOCS/DESIGN](./DOCS/DESIGN/).
 
-# Next Projects Generally
-This is a very rough to do list.  Feel free to edit and format in ways to indicate interest/objection help set priorities etc.
+Ideas for design directions as well as creative content for the future game can all be found in [DOCS/CREATIVE](./DOCS/CREATIVE)
+
+# Current Todo list. 
+This is a very rough to do list.  Feel free to edit and format in ways to indicate interest/objection help set priorities etc. If this gets messy we can switch to using other tools to track todo.  But in the meantime feel free to track other micro projects here following the example below.
 
 ## Create an EvMenu Dungeon
   A pure instanced Dungeon; see [How to Dungeon](./DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
@@ -26,7 +28,7 @@ This is a very rough to do list.  Feel free to edit and format in ways to indica
   Thoughts: this would be a good place to stop and consider whether the purely instanced menu based Dungeon is good enough or whether to switch to 
   semi-permanent dungeon generation.
 
-# DR features
+# DR features and long term goals, maybe.
 The following features are based on the Dungeon Robber rules. They can be tweaked as we develop.
 
   1. Character generation command that transforms a regular character into rip-off
