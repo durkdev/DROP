@@ -4,7 +4,7 @@ Evennia settings file.
 The available options are found in the default settings file found
 here:
 
-/home/ubuntu/muddev/evennia/evennia/settings_default.py
+/home/j3b/EvDev/evennia/evennia/settings_default.py
 
 Remember:
 
@@ -32,7 +32,57 @@ from evennia.settings_default import *
 ######################################################################
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "DROP"
+SERVERNAME = "DROP Testing"
+
+# open to the internet: 
+# 4020 and 4021
+# not 4020 for a test
+
+WEBSOCKET_CLIENT_PORT = [4022]
+AMP_PORT = 4026
+
+# Required. Change to whichever outgoing Telnet port(s) 
+# you are allowed to use on your host.
+TELNET_PORTS = [4020]
+# Optional for security. Restrict which telnet 
+# interfaces we should accept. Should be set to your 
+# outward-facing IP address(es). Default is ´0.0.0.0´
+# which accepts all interfaces.
+TELNET_INTERFACES = ['0.0.0.0']
+
+
+# WEB SERVER
+# Required. This is a list of tuples 
+# (outgoing_port, internal_port). Only the outgoing
+# port should be open to the world! 
+# set outgoing port to 80 if you want to run Evennia
+# as the only web server on your machine (if available).
+WEBSERVER_PORTS = [(4021, 4025)]
+# Optional for security. Change this to the IP your 
+# server can be reached at (normally the same 
+# as TELNET_INTERFACES)
+WEBSERVER_INTERFACES = ['0.0.0.0']
+# Optional for security. Protects against 
+# man-in-the-middle attacks. Change  it to your server's 
+# IP address or URL when you run a production server. 
+ALLOWED_HOSTS = ['*']
+
+
+# Required. Change this to the main IP address of your server.
+WEBSOCKET_CLIENT_INTERFACE = '0.0.0.0'
+# Optional and needed only if using a proxy or similar. Change 
+# to the IP or address where the client can reach 
+# your server. The ws:// part is then required. If not given, the client
+# will use its host location.  
+WEBSOCKET_CLIENT_URL = ""
+# Required. Change to a free port for the websocket client to reach
+# the server on. This will be automatically appended 
+# to WEBSOCKET_CLIENT_URL by the web client.  
+WEBSOCKET_CLIENT_PORT = 4022
+
+
+# uncomment to lock down server
+# LOCKDOWN_MODE = True
 
 
 ######################################################################
