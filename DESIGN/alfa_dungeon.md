@@ -28,9 +28,10 @@ deduce the following additional requirements:
 
 [x] enter dungeon command
 [x] enter dungeon object
-    The entrance is attached to this, otherwise the you can enter the dungeon
-    from any place. It's all in your head. Okay now this is the spec, silly!
-[ ] dungeon room and level counters... initialized with enter and stored in char.
+    The entrance is attached to this head.
+[x] dungeon room and level counters... initialized with enter and stored in char.
+[ ] character creation node
+    Decide where this happens. 
 [ ] first node is dungeon entrance
 [ ] dungeon loop menu
 [ ] dungeon combat program
