@@ -34,3 +34,35 @@ Ancient script
 * looks like the engraving on a sword blade you saw once
 * glows in the dim light
 
+## Rows of reliquaries surround a moon-shaped pool...
+
+A cave snake slithers through the water.
+
+A cave snake
+* slithers through a skull's eye socket
+* tastes the air
+* drips venom from its fangs
+* bobs its head hypnotically
+* dives into the pool
+* accelerates underwater
+
+## A threadbare tapestry hangs in a quiet hallway...
+
+Faded colors tell a story long since forgotten.
+
+In a threadbare tapestry
+* a knight jousts a headless giant
+* a maiden spins wool of a golden fleece
+* a troll stuffs a pie with thirteen children
+* a king wears a crown of silver fish
+* three hags stir a black cauldron
+
+## An obsidian sarcophagus rests on a marble dais...
+
+A pressure plate triggers a spike trap.
+
+A spike trap
+* springs from the mouth of a carved lion head
+* clutches the dessicated flesh of an old victim
+* snicks with a whir of air
+* strikes with the force of a sledgehammer blow
