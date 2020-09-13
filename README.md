@@ -8,7 +8,10 @@ For a detailed specification see files in the [DOCS/DESIGN](./DOCS/DESIGN/).
 Ideas for design directions as well as creative content for the future game can all be found in [DOCS/CREATIVE](./DOCS/CREATIVE)
 
 # Current Todo list. 
-This is a very rough to do list.  Feel free to edit and format in ways to indicate interest/objection help set priorities etc. If this gets messy we can switch to using other tools to track todo.  But in the meantime feel free to track other micro projects here following the example below.
+With more than one person working, lets just use the readme to link to individual projects.
+## j3b's current project is:
+[alfa dungeon](DESIGN/alfa_dungeon.md) an implementation of dungeon rip-off.
+
 
 # DR features and long term goals, maybe.
 The following features are based on the Dungeon Robber rules. They can be tweaked as we develop.
@@ -32,7 +35,8 @@ rip-off artists.
       4. market
       5. tavern
 
-# Past todo's
+# Past todo's 
+(We will probably move these out of this document before it gets too crowded.)
 ## [X] Create an minimal example EvMenu Dungeon
   A pure instanced Dungeon; see [How to Dungeon](./DOCS/DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
   This will require me to re-learn evmenu.
