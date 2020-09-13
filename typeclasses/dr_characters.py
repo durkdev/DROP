@@ -73,13 +73,12 @@ class DR_char(Character):
         # wait the built-in character object alreasy has "contents"
         # so lets start with that.
 
-        self.db.weilding = "" # actually not sure how to do this. 
-
-        self.db.wearing = ""
+        # For wielding see dr_char spec
 
         # TODO: learn how to ensure in game that the character only 
         # equips items they actually have, and that they only 
         # equip one of each thing depending on slots
+        
 
         # TODO: complete treasure and eq.
         """
