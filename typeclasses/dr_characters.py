@@ -64,10 +64,6 @@ class DR_char(Character):
         # of strings. 
         self.db.ledger = []
 
-        # TODO: Maybe I need to initializs dungeon level and other 
-        # states like panicked and lost, or maybe I don't need to 
-        # until the evmenu starts. I feel like there might be options
-
         # Inventory: equipment, gear, treasure etc.
         # so I guess a couple of arrays are best here.
         # wait the built-in character object alreasy has "contents"
@@ -89,9 +85,6 @@ class DR_char(Character):
         containers (for carrying treasure)
         coins: copper, silver, gold, electrum, platinum,
         gems and jewelry
-        a 'burden' rating derived from their carried items, container, and possibly affected by strength and constitution
+        a 'burden' rating derived from their carried items, container, 
+        and possibly affected by strength and constitution
         """
-
-        
-
-
