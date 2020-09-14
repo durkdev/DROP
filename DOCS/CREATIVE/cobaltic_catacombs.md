@@ -52,7 +52,34 @@ Our group separated in the fight on the stairs. We could not fight through and w
 
 ## We found a room with a door and wedged it shut...
 
-Now we were three, one wounded badly. The cries of battle slowly faded. We kept deathly quiet. I explored the room while Ainar tended Dain. An inscription encircled the cornice, but in no script I knew. Finally my lamplight discovered a small side-door with stairs leading up. We went on. 
+Now we were three, one wounded badly. The cries of battle slowly faded. We kept deathly quiet. I explored the room while Ainar tended Dain. An inscription encircled the cornice, but in no script I knew. Finally my lamplight discovered a small side-door with stairs leading up. We went on.
+
+## The great hall had many stone lamps, all of them cold...
+
+An altar stood at one end. We laid Dain against it for him to rest.
+
+### An altar
+* was graven with the lion, the hart, and the wolf
+* gave a strange feeling
+* bore carved runes that I remembered later
+
+When we were ready to move, we realized Dain was dead.
+
+## We followed the sound of water...
+
+A spring fed a low, wide pool basin. Heedless, both parched, we leaned over to drink. Then it struck.
+
+## a spring-serpent
+* lashed with its tail
+* dove into the pool
+* leaped out, claws slashing
+* turned blades on its scaled hide
+
+It took Ainar into the pool. I splintered my spear killing it, but I was too late.
+
+## Through many passages and stairs I climbed to this room...
+
+...where I write. I recall now the runes from the altar, for they were the death-song of the hunters on the dark side of the year. Maybe that will be my song as well...
 
 
 
