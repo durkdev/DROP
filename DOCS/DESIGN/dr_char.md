@@ -1,9 +1,23 @@
 # Dungeon Rip-off character (DRC)
 
 A DRC is a character object that should live inside a dungem object.
-A regular mud character can puppet a DRC character and "live another
-life" inside the dungem. 
+A regular mud character can puppet a DRC and "live another
+life" inside the "dungem". A DRC can die in the dungeon interred in
+the cemetary. Their epitaph will be preserved in the
+archives. A DRC can also be retired to the Town in the dungem and
+their acheivements will be recorded on a wall of fame.
 
+## "Dungem" aspects of DRC
+DRC's are stored in dungems and are not exclusively owned by player
+characters or accounts. Any PC inside a dungem has access to all the 
+living DRCs in that gem. *This implies the existence of a menu of
+existing DRCs.* It should be impossible for a DRC to escape a dungem
+though perhaps that rule could be transgressed for interesting 
+reasons in the future.
+
+See [dungem.md](dungem.md) spec for more details about dungems. 
+
+## DRC Properties
 DRC's have the following properties in addition to the base evennia 
 character object properties:
  1. name
@@ -43,3 +57,5 @@ current status conditions in the dungeon:
  2. dungeon room
  3. panicked
  4. lost
+
+## DRC Code projects
