@@ -1,6 +1,6 @@
 # DROP/typeclasses/npcshop.py
 """
-NPC-shop-Tutorial from evennia wiki. 
+NPC-shop-Tutorial from evennia wiki.
 """
 
 from evennia.utils import evmenu
@@ -8,7 +8,7 @@ from evennia.utils import evmenu
 
 def menunode_shopfront(caller):
     "This is the top-menu screen."
-    
+
     shopname = caller.location.key
     wares = caller.location.db.storeroom.contents
 
@@ -17,12 +17,12 @@ def menunode_shopfront(caller):
 
     wares = [ware for ware in wares if ware.key.lower() != "door"]
 
-    # TODO: In a DROP appropriate shop, perhaps replace storeroom with 
-    # a list of permant items that never go out of stock. Purchasing 
+    # TODO: In a DROP appropriate shop, perhaps replace storeroom with
+    # a list of permant items that never go out of stock. Purchasing
     # items creates them for the first time.
 
     text = "*** Welcome to %s! ***\n" % shopname
-    if wares: 
+    if wares:
         text += "   Things for sale (chose 1-%i to inspect);" \
                 " [q]uit to exit:" % len(wares)
         # this relies on the built in 'quit' command.
@@ -33,13 +33,14 @@ def menunode_shopfront(caller):
     options = []
     for ware in wares:
         # add an option for every ware in store
-        options.append({"desc": "%s (%s gold)" % \
-                            (ware.key, ware.db.gold_value or 1),
+        options.append({"desc": "%s (%s gold)" %
+                        (ware.key, ware.db.gold_value or 1),
                         "goto": "menunode_inspect_and_buy"})
     options.append({"key": ("Sell", "s"),
                     "desc": "Offer your own goods to the store for gold",
                     "goto": "menunode_sell_list"})
     return text, options
+
 
 # next menu node
 def menunode_sell_list(caller):
@@ -65,11 +66,11 @@ def menunode_sell_list(caller):
     if inventory:
         for item in inventory:
             # add option for every item in inventory
-            options.append({"desc": "sell %s for  %s gold" % \
-                            (item.key, (item.db.gold_value or 0) // 2 ),
+            options.append({"desc": "sell %s for  %s gold" %
+                            (item.key, (item.db.gold_value or 0) // 2),
                             "goto": "menunode_close_sale"})
 
-    options.append({"key": ("back", "b"), 
+    options.append({"key": ("back", "b"),
                     "desc": "Return to buyers menu",
                     "goto": "menunode_shopfront"})
     return text, options
@@ -83,14 +84,14 @@ def menunode_close_sale(caller, raw_string):
     value = (item.db.gold_value or 0) // 2
     # shops have infinite funds right now
     text = "You will receive %i gold pieces if you sell %s. Okay?" % \
-            (value, item.key)
+           (value, item.key)
 
     def sell_item_result(caller):
         "executed if sale closes. necessary?"
         rtext = "The shop takes your %s for %i gold." % (item.key, value)
         caller.db.gold += value
         item.move_to(caller.location.db.storeroom)
-        caller.msg(rtext)    
+        caller.msg(rtext)
         return "menunode_sell_list"
 
     options = ({"key": ("Yes", "yes", "y"),
@@ -100,11 +101,11 @@ def menunode_close_sale(caller, raw_string):
                 "goto": "menunode_sell_list"})
 
     return text, options
-    
+
 
 def menunode_consider_quit(caller):
     """
-    Where you can consider the recent results before continuing 
+    Where you can consider the recent results before continuing
     to shop or quit.
     """
     text = "Whatcha gonna do now?"
@@ -142,20 +143,22 @@ def menunode_inspect_and_buy(caller, raw_string):
         caller.msg(rtext)
         return "menunode_shopfront"
 
-    options = ({"desc": "Buy %s for %s gold" % \
+    options = ({"desc": "Buy %s for %s gold" %
                         (ware.key, ware.db.gold_value or 1),
                 "goto": "menunode_shopfront",
                 "exec": buy_ware_result},
-                {"desc": "Look for something else",
-                 "goto": "menunode_shopfront"})
+               {"desc": "Look for something else",
+                "goto": "menunode_shopfront"})
 
     return text, options
+
 
 def nowhere(caller, raw_string):
     "Nothing happens here except proof that something works"
     text = "You're going nowhere, a little faster now."
     return text
 # Character command
+
 
 from evennia import Command
 

@@ -16,6 +16,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 
 from evennia import default_cmds
 from commands.command import CmdAbilities
+from commands.dr_commands import MakeDRC
 from typeclasses.npcshop import CmdBuildShop
 from world.dungeon import CmdEnterDungeon
 
@@ -39,6 +40,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdAbilities())
         self.add(CmdBuildShop())
         self.add(CmdEnterDungeon())
+        self.add(MakeDRC())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
