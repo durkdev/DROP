@@ -1,9 +1,23 @@
 # Dungeon Rip-off character (DRC)
 
 A DRC is a character object that should live inside a dungem object.
-A regular mud character can puppet a DRC character and "live another
-life" inside the dungem. 
+A regular mud character can puppet a DRC and "live another
+life" inside the "dungem". A DRC can die in the dungeon interred in
+the cemetary. Their epitaph will be preserved in the
+archives. A DRC can also be retired to the Town in the dungem and
+their acheivements will be recorded on a wall of fame.
 
+## "Dungem" aspects of DRC
+DRC's are stored in dungems and are not exclusively owned by player
+characters or accounts. Any PC inside a dungem has access to all the 
+living DRCs in that gem. *This implies the existence of a menu of
+existing DRCs.* It should be impossible for a DRC to escape a dungem
+though perhaps that rule could be transgressed for interesting 
+reasons in the future.
+
+See [dungem.md](dungem.md) spec for more details about dungems. 
+
+## DRC Properties
 DRC's have the following properties in addition to the base evennia 
 character object properties:
  1. name
@@ -43,3 +57,20 @@ current status conditions in the dungeon:
  2. dungeon room
  3. panicked
  4. lost
+
+## DRC Code Step by Step
+
+ 1. [ ] dr_char typeclass 
+ Modify the default character object with 6 ability scores and all features above.
+ 2. [ ] drchar command
+ Trigger an evmenu that offers the player a list of live DRCs in the gem that they can puppet. Or
+ allowes them to create a new DRC. It would then gather player input for bonus ability, character class, 
+ and name. Then store that in a temp object. Then confirm for the player and spawn that object in the db.
+ It should be stored in the dungem object so that players activating the gem can puppet the DRC.
+   + In order to list the live DRC... I need to learn how to store a list of character objects in an objects' db
+   + Before I do that, however, I'll need to make some DRC objects.
+ 3.  [ ] making a DRC
+   0. Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
+   
+__Hold on. Maybe study this more to get a better idea of how to do characters and rules:__ https://github.com/evennia/ainneve/blob/master/world/archetypes.py
+   
