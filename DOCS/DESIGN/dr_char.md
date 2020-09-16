@@ -58,4 +58,19 @@ current status conditions in the dungeon:
  3. panicked
  4. lost
 
-## DRC Code projects
+## DRC Code Step by Step
+
+ 1. [ ] dr_char typeclass 
+ Modify the default character object with 6 ability scores and all features above.
+ 2. [ ] drchar command
+ Trigger an evmenu that offers the player a list of live DRCs in the gem that they can puppet. Or
+ allowes them to create a new DRC. It would then gather player input for bonus ability, character class, 
+ and name. Then store that in a temp object. Then confirm for the player and spawn that object in the db.
+ It should be stored in the dungem object so that players activating the gem can puppet the DRC.
+   + In order to list the live DRC... I need to learn how to store a list of character objects in an objects' db
+   + Before I do that, however, I'll need to make some DRC objects.
+ 3.  [ ] making a DRC
+   0. Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
+   
+__Hold on. Maybe study this more to get a better idea of how to do characters and rules:__ https://github.com/evennia/ainneve/blob/master/world/archetypes.py
+   
