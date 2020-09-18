@@ -71,6 +71,13 @@ current status conditions in the dungeon:
    + Before I do that, however, I'll need to make some DRC objects.
  3.  [ ] making a DRC
    0. Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
+   0. Then pick a profession
+   0. pick a name and you're done
+   This creates a new DRC object base on the DR typeclass.
+ 4. [ ] entering "town" as a DRC
+   Solving this involves learning how to call the puppet_character function from within my DR command.
    
+
+
 __Hold on. Maybe study this more to get a better idea of how to do characters and rules:__ https://github.com/evennia/ainneve/blob/master/world/archetypes.py
    
