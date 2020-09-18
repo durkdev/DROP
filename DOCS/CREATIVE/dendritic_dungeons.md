@@ -48,9 +48,25 @@ The old man opened the door and stood aside.
 
 ## 4.
 
-By whatever trick, he was in the same crystal chamber as before.
+Again he was in the same crystal chamber as before. Someone is playing a trick on me, the shepherd thought.
 
-....
+"I wish ill on no man," the shepherd said aloud, and so he took the left-hand passage of Siochan.
+
+He had not gone long when he reached a door, and before it stood the crooked old man leaning on a spear.
+
+"Tell me the trick, old one, for I wish to be gone!" the shepherd cried.
+
+"If you will pass," he said, "tell me no lies now and forevermore."
+
+"It matters not," the shepherd said, "for I know what lies beyond the door."
+
+The old man smiled then, and suddenly stabbed the shepherd with his spear.
+
+
+## 5.
+
+The shepherd woke with a start in the mid-day bright sun, his sheep grazing all around him. The crystal was warm in his hand, and he put it in his pocket. 
+
 
 
 
