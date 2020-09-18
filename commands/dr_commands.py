@@ -3,10 +3,10 @@
 These are the commands needed for running the Dungeon Rip-off mini game.
 Many of these commands will be attached to DR objects and rooms.
 '''
-from evennia.utils import evmenu
+from evennia.utils import utils, evmenu, create
 from evennia import Command
-# from typeclasses.dr_characters import DR_char
 from world.dr_rules import ABILITIES
+
 
 ##########################################################
 #                                                        #
@@ -31,6 +31,15 @@ class MakeDRC(Command):  # Make a Dungeon Rip-off Char
                       startnode="mn_dr_start")
 
 
+def enter_dungeon(caller, **kwargs):
+    "Enter the dungeon puppeting the chosen character."
+    char = kwargs["char"]
+    caller.msg("You want to enter town as %s" % char)
+    self.puppet_object(char)
+    # TODO just make it work
+    return
+
+
 def mn_dr_start(caller):
     "start node of dr character creation menu"
 
@@ -49,8 +58,8 @@ def mn_dr_start(caller):
     if live_chars:
         for char in live_chars:
             # add an option for each live character
-            options.append({"desc": "%s" % char.key},
-                           {"exec": "enter_dungeon()"})
+            options.append({"desc": "%s" % char,
+                            "goto": ("enter_dungeon", {"char": char})})
 
     options.append({"key": ("new", "n"),
                     "goto": "mn_stat"})
@@ -83,57 +92,98 @@ def mn_confirmstat(caller, raw_string, **kwargs):
     for key in kwargs:
         choice = kwargs[key]
         bonus = key
+    caller.ndb._menutree.bonus = bonus
     text = "You chose %s to be your one bonus ability.\n" % choice
     text += "Press 'b' to go back, or [enter]  to continue."
 
-    def save_bonus(caller, bonus):
-        #  TODO WHY ISNT THIS WORKING ?
-        #  While at it find out what I'm suposed to do instead
-        text = "You saved %s as your bonus ability" % bonus
-        print(text)
-        caller.msg(text)
-
     options = ({"key": "_default",
-                "goto": ("mn_choose_class", {bonus: choice}),
+                "goto": ("mn_choose_prof", {bonus: choice}),
                 },
                {"key": ("back", "b", "B"),
                 "goto": "mn_stat",
-                #  I knot this is deprecated. So what should I do?
                 })
-    caller.msg("You're trying to set %s as the bonus" % bonus)
+    #  caller.msg("You're trying to set %s as the bonus" % bonus)
     return text, options
 
 
-def mn_choose_class(caller, raw_string, **kwargs):
-    "Maybe you can choose a class.  Depending."
-    for key in kwargs:
-        choice = kwargs[key]
-        #  bonus = key
-    text = "You saved %s as your one bonus ability.\n" % choice
+def mn_choose_prof(caller, raw_string, **kwargs):
+    "Maybe you can choose a profession.  Depending."
+    text = "bonus ability score: %s.\n" % caller.ndb._menutree.bonus
+    text += "Now choose a class. In future this will be more interesting\n"
+    text += "But right now only Rip-off Artist is available.\n"
+    text += "So choose it. Choose it now!\n"
+    caller.ndb._menutree.prof = "ROA"
+    options = ({"key": "_default",
+                "goto": "mn_confirm_prof"
+                })
+
     #  TODO: work on classes based on the rules. But first create only
     #  the Dungeon Rip-off class.  The rest can come much later in dev.
     #  I think.
-    return text
+    return text, options
 
 
-######################################################
-# open a menu to ask the player to make some choices #
-######################################################
-# Name DONE
+def mn_confirm_prof(caller, raw_string, **kwargs):
+    "Confirm their choice. Not that they have a choice."
+    text = "Confirm your choice of profession:\n"
+    text = "%s" % caller.ndb._menutree.prof
 
-# Bonus Stat DONE almost
+    options = ({"key": "_default",
+                "goto": "mn_name"
+                })
 
-# Class
-
-#####################################################
-# Initialize a new drc with these values and def.   #
-#####################################################
+    return text, options
 
 
-def newdrc(self):
-    "initialize a typeclass dr_character"
+def mn_name(caller):
+    text = "Choose a name:"
+    options = {"key": "_default",
+               "goto": _set_name}
+    return text, options
 
 
-#####################################################
-# Display chacter sheet                             #
-#####################################################
+def _set_name(caller, raw_string, **kwargs):
+
+    caller.ndb._menutree.name = raw_string
+    caller.msg("Your name will be %s." % raw_string)
+    return "mn_review"
+
+
+def _save_char(caller):
+    "creates a DR char using chosen information"
+    #  TODO: make DRC typeclass and create command
+    name = caller.ndb._menutree.name
+    prof = caller.ndb._menutree.prof
+    bonus = caller.ndb._menutree.bonus
+
+    new_drc = create.create_object("dr_characters.DR_char",
+                                   name, report_to=caller)
+
+    new_drc.db.prof = prof
+    new_drc.db.bonus = bonus
+
+    report = "Created %s, a %s with especially good %s.\n" % \
+        (name, prof, bonus)
+
+    caller.msg(report)
+
+    if caller.location.db.lives:
+        caller.location.db.lives.append(name)
+    else:
+        caller.location.db.lives = []
+        caller.location.db.lives.append(name)
+
+    return "mn_dr_start"
+
+
+def mn_review(caller):
+    text = "DR Character summary:\n"
+    text += "Name: %s\n" % caller.ndb._menutree.name
+    text += "Profession: %s\n" % caller.ndb._menutree.prof
+    text += "Bonus ability: %s\n" % caller.ndb._menutree.bonus
+
+    options = ({"key": ("Accept", "A", "a"),
+                "goto": _save_char},
+               {"key": ("Restart", "R", "r"),
+                "goto": "mn_dr_start"})
+    return text, options
