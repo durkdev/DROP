@@ -19,7 +19,7 @@ ABILITIES = {  # short key: (long name, help desc, other information?)
                 " and you may hire two mooks instead of one"]
         }
 
-CLASSES = {  # short key: (long name, help desc, ??? )
+PROFESSIONS = {  # short key: (long name, help desc, ??? )
     "ROA": ["rip-off artist", "Basically a  nobody but bonus lucky" +
             "rolls and increasing bonus to running away from monsters"],
     "THF": ["thief", "Can't use heavy weapons or armout but is better at " +

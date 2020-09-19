@@ -3,9 +3,9 @@
 These are the commands needed for running the Dungeon Rip-off mini game.
 Many of these commands will be attached to DR objects and rooms.
 '''
-from evennia.utils import utils, evmenu, create
+from evennia.utils import evmenu, create
 from evennia import Command
-from world.dr_rules import ABILITIES
+from world.dr_rules import ABILITIES, PROFESSIONS
 
 
 ##########################################################
@@ -31,13 +31,14 @@ class MakeDRC(Command):  # Make a Dungeon Rip-off Char
                       startnode="mn_dr_start")
 
 
-def enter_dungeon(caller, **kwargs):
+def enter_dungeon(caller, raw_string, **kwargs):
     "Enter the dungeon puppeting the chosen character."
-    char = kwargs["char"]
+    char = kwargs.get("char")
     caller.msg("You want to enter town as %s" % char)
-    self.puppet_object(char)
-    # TODO just make it work
-    return
+    # TODO: what pre-checks should I do?
+    session = caller.ndb._menutree._session
+    caller.account.puppet_object(session, char)
+    return  # we're done here
 
 
 def mn_dr_start(caller):
@@ -102,36 +103,42 @@ def mn_confirmstat(caller, raw_string, **kwargs):
                {"key": ("back", "b", "B"),
                 "goto": "mn_stat",
                 })
-    #  caller.msg("You're trying to set %s as the bonus" % bonus)
+    caller.msg("You're trying to set %s as the bonus" % ABILITIES[bonus][0])
     return text, options
 
 
 def mn_choose_prof(caller, raw_string, **kwargs):
     "Maybe you can choose a profession.  Depending."
-    text = "bonus ability score: %s.\n" % caller.ndb._menutree.bonus
-    text += "Now choose a class. In future this will be more interesting\n"
-    text += "But right now only Rip-off Artist is available.\n"
+    text = "Now choose a class. In future this will be more interesting\n"
     text += "So choose it. Choose it now!\n"
-    caller.ndb._menutree.prof = "ROA"
-    options = ({"key": "_default",
-                "goto": "mn_confirm_prof"
-                })
-
-    #  TODO: work on classes based on the rules. But first create only
-    #  the Dungeon Rip-off class.  The rest can come much later in dev.
-    #  I think.
+    options = []
+    for prof in PROFESSIONS:
+        # loop just like for stats
+        choice = PROFESSIONS[prof]
+        print("prof = {}".format(prof))
+        print("choice = {}".format(choice))
+        options.append({
+                        "desc": "%s: %s" % (choice[0], choice[1]),
+                        "goto": ("mn_confirm_prof", {"prof": prof})
+                        })
+    options.append({"key": "back",
+                    "goto": "mn_choose_prof"})
     return text, options
 
 
 def mn_confirm_prof(caller, raw_string, **kwargs):
-    "Confirm their choice. Not that they have a choice."
+    "Confirm their choice."
+    prof = kwargs.get("prof")
+    print("profivar is %s" % prof)
+    caller.ndb._menutree.prof = prof
     text = "Confirm your choice of profession:\n"
-    text = "%s" % caller.ndb._menutree.prof
-
-    options = ({"key": "_default",
-                "goto": "mn_name"
-                })
-
+    text += "%s" % PROFESSIONS[prof][0]
+    options = []
+    options.append({"key": "_default",
+                    "goto": "mn_name"
+                    })
+    options.append({"key": "back",
+                    "goto": "mn_choose_prof"})
     return text, options
 
 
@@ -143,7 +150,7 @@ def mn_name(caller):
 
 
 def _set_name(caller, raw_string, **kwargs):
-
+    # set name
     caller.ndb._menutree.name = raw_string
     caller.msg("Your name will be %s." % raw_string)
     return "mn_review"
