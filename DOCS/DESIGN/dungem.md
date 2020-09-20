@@ -30,3 +30,7 @@ So then write some cleanup handler for getting rid of a world. It should be easy
 j3bToday at 9:35 PM
 Okay yes I like this.  Zone are my answer for now. I will meditate upon this. Thanks!
 </pre>
+
+See: https://github.com/evennia/evennia/wiki/Zones
+
+
