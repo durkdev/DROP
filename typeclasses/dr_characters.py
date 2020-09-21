@@ -16,6 +16,9 @@ class DR_char(Character):
         # set persistent attributes
         # name by the way should already be set by the 
         # creation command. 
+
+        # every dr char should be assigned a homegem at start.
+        self.db.homegem = None
        
         # level & xp
         self.db.level = 0

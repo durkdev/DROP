@@ -3,9 +3,10 @@
 These are the commands needed for running the Dungeon Rip-off mini game.
 Many of these commands will be attached to DR objects and rooms.
 '''
-from evennia.utils import evmenu, create
+from evennia.utils import evmenu, create  # , search_tag
 from evennia import Command
 from world.dr_rules import ABILITIES, PROFESSIONS
+from typeclasses.dr_characters import DR_char
 
 
 ##########################################################
@@ -44,20 +45,21 @@ def enter_dungeon(caller, raw_string, **kwargs):
 def mn_dr_start(caller):
     "start node of dr character creation menu"
 
-    live_chars = caller.location.db.lives
-    # a list of current characters in play in this dungen
+    local_tag = "dg%s" % caller.location.dbref
+    # a list of current characters in play from this dg
+    live_dr_chars = DR_char.objects.filter(db_tags__db_key=local_tag)
 
     text = "***Welcome to the Dungeon Sim***"
-    if live_chars:
+    if live_dr_chars:
         text += "  These are the living characters:" \
-                " choose 1-%i to live their lives." % len(live_chars)
+                " choose 1-%i to live their lives." % len(live_dr_chars)
     else:
         text += " No living character here." \
                 " Choose [n]ew to start a new life" \
                 " or [q]uit to quit."
     options = []
-    if live_chars:
-        for char in live_chars:
+    if live_dr_chars:
+        for char in live_dr_chars:
             # add an option for each live character
             options.append({"desc": "%s" % char,
                             "goto": ("enter_dungeon", {"char": char})})
@@ -168,9 +170,15 @@ def _save_char(caller):
 
     new_drc.db.prof = prof
     new_drc.db.bonus = bonus
+    dg_tag = "dg%s" % caller.location.dbref
+    # okay this is amazing to me. So simple. this links this char to the
+    # room it was created in.  Once drchar command is restricted to
+    # dungems this will be central to the game.
+    new_drc.tags.add(dg_tag)
 
     report = "Created %s, a %s with especially good %s.\n" % \
         (name, prof, bonus)
+    report += "With tag: %s" % dg_tag
 
     caller.msg(report)
 
