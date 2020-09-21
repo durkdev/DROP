@@ -7,6 +7,17 @@ dungem.  Same goes for "town" and related rooms. None of them are confined withi
 
 Consider how far we got with this during the vessel project in Mutiny.
 
+## Talk through the requirement
+Creating a dungem should create an object with a couple of default values, ie. described as a gem, has a certain cmd_set.
+(Review Mutiny's vessel objects to see how we restricted object cmd_sets to characters inside them.)
+On creation it gets a unique name or tag. (how to enforce this? Just use #dbref or something else?)
+Inside it should have a build town command that creates rooms that are tagged as in the zone of this dungem's unique name. 
+In other words everything created by internal dungem build commands or by procedural generation (in shops or in the dungeon) 
+will get tagged.
+
+Is there a way to define the "create object" function and have every create in the gem use it?  
+
+
 # Helpful advice from discord Kovitikus:
 
 <pre>
