@@ -7,6 +7,9 @@ For a detailed specification see files in the [DOCS/DESIGN](./DOCS/DESIGN/).
 
 Ideas for design directions as well as creative content for the future game can all be found in [DOCS/CREATIVE](./DOCS/CREATIVE)
 
+Testing server online at: http://18.189.9.99:4021/
+
+
 # Current Todo list. 
 With more than one person working, lets just use the readme to link to individual projects.
 ## j3b's current project is:
