@@ -6,7 +6,7 @@ Many of these commands will be attached to DR objects and rooms.
 from evennia.utils import evmenu, create  # , search_tag
 from evennia import Command
 from world.dr_rules import ABILITIES, PROFESSIONS
-from typeclasses.dr_characters import DR_char
+from typeclasses.DROP import DR_char
 
 
 ##########################################################
@@ -32,8 +32,8 @@ class MakeDRC(Command):  # Make a Dungeon Rip-off Char
                       startnode="mn_dr_start")
 
 
-def enter_dungeon(caller, raw_string, **kwargs):
-    "Enter the dungeon puppeting the chosen character."
+def enter_dtown(caller, raw_string, **kwargs):
+    "Enter the local town  puppeting the chosen character."
     char = kwargs.get("char")
     caller.msg("You want to enter town as %s" % char)
     # TODO: what pre-checks should I do?
@@ -62,7 +62,7 @@ def mn_dr_start(caller):
         for char in live_dr_chars:
             # add an option for each live character
             options.append({"desc": "%s" % char,
-                            "goto": ("enter_dungeon", {"char": char})})
+                            "goto": ("enter_dtown", {"char": char})})
 
     options.append({"key": ("new", "n"),
                     "goto": "mn_stat"})
@@ -165,7 +165,7 @@ def _save_char(caller):
     prof = caller.ndb._menutree.prof
     bonus = caller.ndb._menutree.bonus
 
-    new_drc = create.create_object("dr_characters.DR_char",
+    new_drc = create.create_object("DROP.DR_char",
                                    name, report_to=caller)
 
     new_drc.db.prof = prof
@@ -202,3 +202,11 @@ def mn_review(caller):
                {"key": ("Restart", "R", "r"),
                 "goto": "mn_dr_start"})
     return text, options
+
+
+def BuildGem(Command):
+    """
+    create a new dungem object specifying it's unique features if any.
+    """
+    newgem = create.create_object("typeclasses.DROP.Dungem")
+    return newgem.dbref
