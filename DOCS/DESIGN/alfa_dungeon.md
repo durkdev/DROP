@@ -26,17 +26,17 @@ deduce the following additional requirements:
 
 # Build plan
 
-[x] enter dungeon command
-[ ] enter dungeon object: "dungem"
+* [x] enter dungeon command
+* [ ] enter dungeon object: "dungem"
     The entrance is attached to this portable object. Create a typeclass
     for dungems.
-    [ ] this is a new project see below [dungem](#dungem)
-[x] dungeon room and level counters... initialized with enter and stored in char.
-[ ] character creation node
+    * [ ] this is a new project see below [dungem](#dungem)
+* [x] dungeon room and level counters... initialized with enter and stored in char.
+* [ ] character creation node
     Decide where this happens. 
-[ ] first node is dungeon entrance
-[ ] dungeon loop menu
-[ ] dungeon combat program
+* [ ] first node is dungeon entrance
+* [ ] dungeon loop menu
+* [ ] dungeon combat program
 
 # Dungem
 A dungem is a portable gem that contains an alternate universe (AU). By 
