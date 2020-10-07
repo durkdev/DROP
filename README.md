@@ -13,7 +13,7 @@ Testing server online at: http://18.189.9.99:4021/
 # Current Todo list. 
 With more than one person working, lets just use the readme to link to individual projects.
 ## j3b's current project is:
-[alfa dungeon](DESIGN/alfa_dungeon.md) an implementation of dungeon rip-off.
+[alfa dungeon](DOCS/DESIGN/alfa_dungeon.md) an implementation of dungeon rip-off.
 
 
 # DR features and long term goals, maybe.
