@@ -25,5 +25,13 @@ PROFESSIONS = {  # short key: (long name, help desc, ??? )
     "THF": ["thief", "Can't use heavy weapons or armout but is better at " +
             "sneaking, can sneak attack and pick locks."],
     "WAR": ["warrior", "Trained fighter, can wear heavy armour. Gains " +
-            "attack bonuses with levels."]
+            "attack bonuses with levels."],
+    "CLE": ["cleric", "Spiritual quack, can cast religous spells." +
+            "I'm sure there are other benefits to this class."],
+    "MAG": ["mage", "Hocus pocus. The witches and warlocks of this" +
+            " class are tinkering with power they do not understand" +
+            " this wont end well."]
         }
+
+# TODO: create a rule that only enables classes after certain milestones
+# have been met. Past retired characters of the appropriate rank.
