@@ -60,7 +60,7 @@ current status conditions in the dungeon:
 
 ## DRC Code Step by Step
 
- 1. [ ] dr_char typeclass 
+ 1. [X] dr_char typeclass 
  Modify the default character object with 6 ability scores and all features above.
  2. [ ] drchar command
  Trigger an evmenu that offers the player a list of live DRCs in the gem that they can puppet. Or
@@ -70,12 +70,20 @@ current status conditions in the dungeon:
    + In order to list the live DRC... I need to learn how to store a list of character objects in an objects' db
    + Before I do that, however, I'll need to make some DRC objects.
  3.  [ ] making a DRC
-   0. Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
-   0. Then pick a profession
-   0. pick a name and you're done
+   + Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
+   + Then pick a profession
+   + pick a name and you're done
+   + behind the scenes picking ability scores stats and class should generate some other stats
+     + base AC, max HP
+     + attack and sneak bonus
    This creates a new DRC object base on the DR typeclass.
- 4. [ ] entering "town" as a DRC
-   Solving this involves learning how to call the puppet_character function from within my DR command.
+ 4. [X] play as a DRC
+   Solving this involves learning how to call the puppet_character function from within my DR command. Ths works now.
+ 5. DRC clean up.
+   + in the game DRC's are subject to permadeath.  Might as well build this soon.
+   + create a test command "die" to use for cleaning up indiviudal test chars.
+   + delete the DB object... but add to a graveyard file.
+   + create a "retire" command as well... archive the char for possible re-use later or monumentalize?
    
 
 
