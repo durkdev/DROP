@@ -31,19 +31,19 @@ actions will be well supported by code.  Adventure elements should have enough f
 system. 
 
 ### Example:
-'''
+<pre>
 You enter a room and find an orc. It sneers and draws a sword.
->Attack orc.
+>> Attack orc.
 You attack the ord with your wielded weapon.  Hit and do lethal damage killing it.  (All this is calculated
 by the game engine.)  You murder the orc and obtain loot from its corpse.
-'''
+</pre>
 
 However there should also be another optional system of creative power gaming allowing players to dictate 
 how they overcome or succumb to obstacles by creating new attributes and conditions on the fly in response to 
 the content they encounter.  These attributes and conditions are persistent. 
 
 ### Example:
-'''
+<pre>
 You enter a room and note that it is completely occupied by sentient green slime. 
 >powergame: "I can levitate at will.  I activate this power and float through the room just out of 
 reach of the noxious slime"
@@ -51,7 +51,8 @@ What is your resulting condition?
 >Levitating.
 You now have the condition "levitating" which will be added to your status until you manually turn it off. 
 It will be up to the player to decide how this condition affects them in future encounters.
-'''
+</pre>
+
 ## Honor (*and shame*) system.
 The only check on powergaming is that all powergame exploits... or perhaps all exploits are publicly shared to 
 all players in a news log.  All other players will read about your encounters and what conditions you invented.
