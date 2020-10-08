@@ -34,6 +34,8 @@ character object properties:
 DRC's can also have attached items and item based conditions:
  1. general inventory
  2. equipped inventory
+    1. Okay I think eq. slot and eqpd status is a property of the item
+    itself. Test this out later.
  3. containers (for carrying treasure)
  4. coins: copper, silver, gold, electrum, platinum,
  5. gems and jewelry
@@ -53,6 +55,9 @@ of the log is stored in the archives.
 
 Similar to the log, the DRC object store information about the character
 current status conditions in the dungeon:
+//Use ndb. variables for this and possibly save them in the menu instance
+itself.//
+
  1. dungeon level
  2. dungeon room
  3. panicked

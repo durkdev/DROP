@@ -132,7 +132,7 @@ def dn_win(caller, raw_string, **kwargs):
     Winning the fight grants you gold.
     """
     text = "You won and get some gold from the monster"
-    caller.db.gold += 10
+    # not today killer, not today. caller.db.gold += 10
     options = (
         {"key": ("continue", "c", "C"),
         "goto": "dn_delve"})
@@ -140,4 +140,3 @@ def dn_win(caller, raw_string, **kwargs):
         # I need to figure out how to stream the MUD client instead.
        
     return text, options
-
