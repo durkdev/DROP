@@ -73,9 +73,9 @@ current status conditions in the dungeon:
    + Ask user to pick a stat to get a bonus.  Stats are stored world.dr_rules.py
    + Then pick a profession
    + pick a name and you're done
-   +  [ ] behind the scenes picking ability scores stats and class should generate some other stats
-     +  [ ] base AC, max HP
-     +  [ ] attack and sneak bonus
+   + [ ] behind the scenes picking ability scores stats and class should generate some other stats
+     + [ ] base AC, max HP
+     + [ ] attack and sneak bonus
    + This creates a new DRC object base on the DR typeclass.
  4. [X] play as a DRC
    Solving this involves learning how to call the puppet_character function from within my DR command. Ths works now.
