@@ -76,7 +76,7 @@ current status conditions in the dungeon:
    + behind the scenes picking ability scores stats and class should generate some other stats
      + base AC, max HP
      + attack and sneak bonus
-   This creates a new DRC object base on the DR typeclass.
+ This creates a new DRC object base on the DR typeclass.
  4. [X] play as a DRC
    Solving this involves learning how to call the puppet_character function from within my DR command. Ths works now.
  5. DRC clean up.
@@ -84,8 +84,4 @@ current status conditions in the dungeon:
    + create a test command "die" to use for cleaning up indiviudal test chars.
    + delete the DB object... but add to a graveyard file.
    + create a "retire" command as well... archive the char for possible re-use later or monumentalize?
-   
-
-
-__Hold on. Maybe study this more to get a better idea of how to do characters and rules:__ https://github.com/evennia/ainneve/blob/master/world/archetypes.py
    
