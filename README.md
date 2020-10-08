@@ -1,4 +1,4 @@
-# Welcome to Dungeon Rip-off Plus+!
+# Welcome to Dungeon Rip-off Plus+! (thats a double plus)
 
 We will have FISHING!! Tricks, traps and deadly Rock Paper Scissors dueling.
 Stay tuned.  Also there is some discussion in the [Wiki](https://github.com/durkdev/DROP/wiki).  Should we continue to use the Wiki for idea development?
@@ -9,53 +9,60 @@ Ideas for design directions as well as creative content for the future game can 
 
 Testing server online at: http://18.189.9.99:4021/
 
-
-# Current Todo list. 
-With more than one person working, lets just use the readme to link to individual projects.
-## j3b's current project is (top is most current):
-* [character design](DOCS/DESIGN/dr_char.md) basic character creation.
-* [alfa dungeon](DOCS/DESIGN/alfa_dungeon.md) an implementation of dungeon rip-off.
+# Current project/to do.
+## j3b4
+Just writing vision and design specs.  Also hide away old stuff.
 
 
-# DR features and long term goals, maybe.
-The following features are based on the Dungeon Robber rules. They can be tweaked as we develop.
+# Vision
+The goal of DROP+ is to explore randomly generated dungeon adventures together or alone. Writers will
+create exquisite little adventure elements and vignettes which the player can experience through 
+exploration and chance. 
 
-  1. Character generation command that transforms a regular character into 
-rip-off artists.
-      1. ability scores
-      1. coins, gold, silver, copper, electrum, platinum
-      1. gems etc
-      1. inventory
-  2. Equipment wielding - to allow player to select which equipment is active
-      1. armour
-      1. weapons
-      1. special items like 10' pole for some reason
-  3. Monsters and NPCs
-      1. to fight and interact with
-  4. Town - shops and services
-      1. home
-      2. graveyard
-      3. hall of infamy
-      4. market
-      5. tavern
+## Content Creation
+Writers should be able to continue develop content in tiny modular chunks without worrying about the big 
+picture.  Kind of like dropping adventure cards into an ever expanding deck. 
 
-# Past todo's 
-(We will probably move these out of this document before it gets too crowded.)
-## [X] Create an minimal example EvMenu Dungeon
-  A pure instanced Dungeon; see [How to Dungeon](./DOCS/DESIGN/howto_dungeon.md) for an idea of what I'm going for here. 
-  This will require me to re-learn evmenu.
-  
-  1. [X] Complete the NPC shop evmenu tutorial. (Finished for this stage.)
-      1. [x] tweak the NPC shop to be usable in the game for buying gear and selling off dungeon loot.
-      2. [x] add a "sell" command that turns the players inventory into a stockroom and adds an offer price to each item.
-        1. [x] evemenu of personal inventory [done]
-        2. [x] sell value is half of buy cost
-  1. [ ] Use evmenu knowledge to build menu based combat in a linear Dungeon
-      1. [x] Dungeon choices are only continue or backtrack
-      2. [x] Dungeon feature is only monster or nothing
- As a first step learning process this has succeeded. I think I will close this branch and return to the drawing board before trying to implement a more functional version of the dungeon.
- 
-  Thoughts: this would be a good place to stop and consider whether the purely instanced menu based Dungeon is good enough or whether to switch to semi-permanent dungeon generation.
+## Game mechanics and rules
+The game mechanics should provide generic methods of interacting with the content with optional on-the-fly
+customization. That is the player should be able to approach obstacles in the dungeon crawl through tradional
+hack-n-slash methods like attacking with found weapons, using potions and scroll, sneaking away etc.  These 
+actions will be well supported by code.  Adventure elements should have enough features to interact with this
+system. 
+
+### Example:
+You enter a room and find an orc. It sneers and draws a sword.
+>> Attack orc.
+You attack the ord with your wielded weapon.  Hit and do lethal damage killing it.  (All this is calculated
+by the game engine.)  You murder the orc and obtain loot from its corpse.
+
+However there should also be another optional system of creative power gaming allowing players to dictate 
+how they overcome or succumb to obstacles by creating new attributes and conditions on the fly in response to 
+the content they encounter.  These attributes and conditions are persistent. 
+
+### Example:
+You enter a room and note that it is completely occupied by sentient green slime. 
+>> powergame: "I can levitate at will.  I activate this power and float through the room just out of 
+reach of the noxious slime"
+What is your resulting condition?
+>> Levitating.
+You now have the condition "levitating" which will be added to your status until you manually turn it off. 
+It will be up to the player to decide how this condition affects them in future encounters.
+
+## Honor (*and shame*) system.
+The only check on powergaming is that all powergame exploits... or perhaps all exploits are publicly shared to 
+all players in a news log.  All other players will read about your encounters and what conditions you invented.
+If your powergaming offends the standards of play accepted by other players you will find yourself embarrased.
+If it entertains your fellow players you will gain renown. 
+
+# Shared random adventures
+The MUD will allow one or more than one player to experience adventures together.  This will use a dynamic room 
+system and a group/follow system to help players stay together if they wish.  Combat and other forms or obstacle
+resolution should best be turn based to make sure power gaming narratives are somewhat coherent. 
+
+## Shared powergaming. 
+Using the powergame command, players can impose or propose conditions on other players. Consent structures and
+boundaries can be adjusted to taste.
 
 
 # Evennia Links
