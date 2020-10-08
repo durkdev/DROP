@@ -1,5 +1,8 @@
-# Welcome to Dungeon Rip-off Plus+!
+# Menu Crawl Legacy Branch of DROP.
+So this branch is just preserve progress in the direction of the EvMenu based dungeon crawl mechanic in case I want to come back to it. 
+Lets try not to delete this branch.
 
+# Welcome to Dungeon Rip-off Plus+!
 We will have FISHING!! Tricks, traps and deadly Rock Paper Scissors dueling.
 Stay tuned.  Also there is some discussion in the [Wiki](https://github.com/durkdev/DROP/wiki).  Should we continue to use the Wiki for idea development?
 
