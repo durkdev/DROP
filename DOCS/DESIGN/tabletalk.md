@@ -8,13 +8,13 @@ imported that table to this project without a clear idea yet if, or how I want
 to use it. [tables.py](world/tables.py) tables.py currently has one dictionary
 or "book" of tables named GYGAX. 
 
-## Digression about  GYGAX GYGAX is as or more complex than I think I can
-tolerate. It is a dictionary of about 20 arrays (tables) which contain table
-headings and tuples of results. It might be more reasonable to make every table
-a separate data structure.  There is no particular reason that they have to be
-combined.  Each structure would have to follow a strict rubric to ensure it
-played properly with whichever commands utilized it.  But that's true either
-way.
+## Digression about GYGAX
+GYGAX is as or more complex than I think I can tolerate. It is a dictionary of
+about 20 arrays (tables) which contain table headings and tuples of results. It
+might be more reasonable to make every table a separate data structure.  There
+is no particular reason that they have to be combined.  Each structure would
+have to follow a strict rubric to ensure it played properly with whichever
+commands utilized it.  But that's true either way.
 
 GYGAX succeeds in implementing some of the DMG game but does not contain the
 tricks, traps, treasure or monster results.  So I'm at a crossroads (I've been
