@@ -1,6 +1,6 @@
 # Welcome to Dungeon Rip-off Plus+! (thats a double plus)
 
-We will have FISHING!! Tricks, traps and deadly Rock Paper Scissors dueling.
+We will have FISHING!! Tricks, traps and deadly Rock Paper Scissor dueling.
 Stay tuned.  Also there is some discussion in the [Wiki](https://github.com/durkdev/DROP/wiki).  Should we continue to use the Wiki for idea development?
 
 For a detailed specification see files in the [DOCS/DESIGN](./DOCS/DESIGN/).
