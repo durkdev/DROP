@@ -25,9 +25,9 @@ This is what it should be like to play the minimal implementation of this game
 now: 
 1. Log in through the webclient. Create a player character by choosing a name.
 1. Arrive in a lobby room.
-  1. help/intro information
-  1. read the "gazette"
-  1. enter the dungeon
+    1. help/intro information
+    1. read the "gazette"
+    1. enter the dungeon
 1. There is an exit from the lobby to enter a dungeon. 
 1. The Dungeon is a series of rooms, some contain objects. Some objects are
    obstacles. The player can navigate through the rooms, pick up or interact
