@@ -14,6 +14,28 @@ I notice I'm making up terms here so I should start defining them.
 
 ruling: a decision by a player about rules of the game that gets recorded
 
+journal:  a "black box" system that records the players actions and rulings
+
+gazette: a system that publishes the adventures of other player characters so 
+    that they can be reviewed and discussed
+
+
+# Play proposition
+This is what it should be like to play the minimal implementation of this game
+now: 
+1. Log in through the webclient. Create a player character by choosing a name.
+1. Arrive in a lobby room.
+  1. help/intro information
+  1. read the "gazette"
+  1. enter the dungeon
+1. There is an exit from the lobby to enter a dungeon. 
+1. The Dungeon is a series of rooms, some contain objects. Some objects are
+   obstacles. The player can navigate through the rooms, pick up or interact
+   with the objects and engage with obstacles. The final "obstacle" is the
+   task of returning home. (To the lobby for now)
+1. Interactions:
+    An obstacle is interacted with when the player runs a command. 
+
 # Minimum Requirements
 0. A prompt to guide players when making rulings
 0. A journal to record these rulings
