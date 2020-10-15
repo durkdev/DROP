@@ -13,10 +13,12 @@ meaning of the die rolls.
 Picture this:
 
 Enter a room
+```
 The room is 20x30'. It is furnished with bones and detritus of many past meals.
 The bones look humanoid. The air is thick with the stench of decay. 
 A large mud troll is here, finishing it's latest meal. It is hostile.
 Exit: north door, east passage, south passage.
+```
 
 Decide on a response
 Although the game is in real time, things partially freeze for the player when
@@ -25,9 +27,10 @@ perhaps in certain special coded ambush situations) until the player decides
 what their character/puppet wants to do.
 However, they cannot leave the room or interact with it's contents until making
 a decision about how they will deal with the encounter. Essentially the player
-must describe how they intends to play out the encounter in a journal
+must describe how they intend to play out the encounter in a journal
 (automatically recorded). 
 
+```
 > engage
 How do you want to engage the large mud troll?
 > attacking it with my sword.
@@ -63,7 +66,8 @@ Exit: north door, east passage, south passage.
 > look corpse
 The corpse of a large mud troll contains:
 13 silver pieces, a crude club, 3 human bones, 
- 
+```
+
  Implications
  There are no "rules" per se, however the journal cannot be edited or deleted.
  Under certain circumstances it becomes visible to other players. So lazy
@@ -76,7 +80,7 @@ The corpse of a large mud troll contains:
  the encounter, the developers/authors can have more influence over the
  behavior of the monsters if they wish.  In this example I provided four
  "states" for the monster. a. hostile, b. friendly, c. helpless or unaware, d.
- dead.  While the player determined which state the monster ended up in.  The
+ dead.  While the player determined which state the monster ends up in, the
  developer/builder can determine how the monster expresses those states, and
  what state it is initially encountered in. For example, if the player finishes
  their move by declaring "failure" I might include a variety of attack moves
@@ -84,7 +88,7 @@ The corpse of a large mud troll contains:
 
  Example:
  ```
-  The large mud troll lunges at your attempting to bite you!
+  The large mud troll lunges, attempting to bite you!
    How do you defend?
    > by ducking out of the way 
    How will you determine if "ducking out of the way" is successful?
@@ -92,7 +96,7 @@ The corpse of a large mud troll contains:
    b. succeed
    c. fail
    > c 
-   You failed to defend the large mud troll's bite attack. It's horrendous
+   You failed to defend the large mud troll's bite attack. Its horrendous
    teeth sink into your flesh spreading disease.
    How does this affect you?
    a. no effect
@@ -105,8 +109,8 @@ The corpse of a large mud troll contains:
    The large mud troll lunged at me attempting to bite me with its filthy
    mouth.
    "ducking out of the way" failed, and
-   It's horrendous teeth sunk into my flesh spreading disease.
-   The large mud trolls bite attack had no effect because I am wearing a
+   Its horrendous teeth sunk into my flesh spreading disease.
+   The large mud troll's bite attack had no effect because I am wearing a
    medallion of protection from teeth and disease.
 ```
    In this case, the trolls attack and the description of its intended effects
