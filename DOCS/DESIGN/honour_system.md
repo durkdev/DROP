@@ -10,9 +10,9 @@ combat (or other obstacles) and only really need to record their reasons.
 Rolling dice is optional and supported but only the player can interpret the
 meaning of the die rolls.
 
-Picture this:
+## Picture this:
 
-Enter a room
+## Enter a room
 ```
 The room is 20x30'. It is furnished with bones and detritus of many past meals.
 The bones look humanoid. The air is thick with the stench of decay. 
@@ -20,7 +20,7 @@ A large mud troll is here, finishing it's latest meal. It is hostile.
 Exit: north door, east passage, south passage.
 ```
 
-Decide on a response
+## Decide on a response
 Although the game is in real time, things partially freeze for the player when
 the initiate an encounter. That is, the mob doesn't initiate anything (except
 perhaps in certain special coded ambush situations) until the player decides
@@ -68,7 +68,7 @@ The corpse of a large mud troll contains:
 13 silver pieces, a crude club, 3 human bones, 
 ```
 
- Implications
+ ## Implications
  There are no "rules" per se, however the journal cannot be edited or deleted.
  Under certain circumstances it becomes visible to other players. So lazy
  role-play as well as absurd munchkinism will be embarrassingly obvious. It
@@ -86,7 +86,7 @@ The corpse of a large mud troll contains:
  their move by declaring "failure" I might include a variety of attack moves
  that the troll will use while in a "hostile" state. 
 
- Example:
+ ## Example:
  ```
   The large mud troll lunges, attempting to bite you!
    How do you defend?
@@ -123,7 +123,7 @@ The corpse of a large mud troll contains:
    with a reason. Ie. helpless for 10 minutes because I cast a sleep spell or
    "unaware for 10 seconds as I slip past  it through the shadows".
 
-   Player status
+   # Player status
 
    A similar system allows the player to record effects on their character for
    future reference, usually to help with future game play decisions. In the
