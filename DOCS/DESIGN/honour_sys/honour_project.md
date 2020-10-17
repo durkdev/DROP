@@ -24,17 +24,22 @@ gazette: a system that publishes the adventures of other player characters so
 This is what it should be like to play the minimal implementation of this game
 now: 
 1. Log in through the webclient. Create a player character by choosing a name.
-1. Arrive in a lobby room.
+2. Arrive in a lobby room.
     1. help/intro information
-    1. read the "gazette"
-    1. enter the dungeon
-1. There is an exit from the lobby to enter a dungeon. 
-1. The Dungeon is a series of rooms, some contain objects. Some objects are
+    2. read the "gazette"
+    3. enter the dungeon
+3. There is an exit from the lobby to enter a dungeon. 
+4. The Dungeon is a series of rooms, some contain objects. Some objects are
    obstacles. The player can navigate through the rooms, pick up or interact
    with the objects and engage with obstacles. The final "obstacle" is the
    task of returning home. (To the lobby for now)
-1. Interactions:
+5. Interactions:
     An obstacle is interacted with when the player runs a command. 
+6. Game arc:
+    So basic game play will be about going on an adventure into the dungeon and
+    then returning to tell the tale. Loot and experience and progression are at
+    the discretion of the player when they choose to apply a status or condition
+    effect to their own character.
 
 # Minimum Requirements
 0. A prompt to guide players when making rulings
@@ -50,6 +55,24 @@ commands to make life easier. Implement each of the minimum requirements.
 The player can launch the prompt at will to begin an interaction with a dungeon
 object. Optionally the game can launch the prompt to force a player to begin an
 interaction. I see the prompt as being an EvMenu. 
+
+### command
+key engage
+
+aliases: attack; solve; escape etc.
+
+Have lots of aliases so that the command makes sense vis-a-vis a particular
+object
+
+usage:  engage <target>
+
+The target is an object in the dungeon.  If not, Prompt will warn the player
+(in case of a typo) but  .... no (see feature creeper). Instead just suggest the
+player can create the object if they wish (and if they have builder permission).
+
+### menu
+
+
 
 ## The Journal
 The Journal get updated by the prompt and optionally the player can add to it
@@ -78,6 +101,11 @@ Evennia commands they can pick up unlocked objects.
 
 # Feature Creepers
 This is a dump for cool features that are not part of the minimal specification
+
+## Calling "engage" command on non-existent objects
+After warngin the player give the player the option of simply creating an
+object.(Call the create command)
+
 
 ## Dungeon building tools
 So the DROP+ project began as a random dungeon generation tool, but ideally I
