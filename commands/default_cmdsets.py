@@ -19,6 +19,8 @@ from commands.command import CmdAbilities
 from commands.dr_commands import MakeDRC
 from typeclasses.npcshop import CmdBuildShop
 from world.dungeon import CmdEnterDungeon
+from commands.honour import Engage
+
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -41,6 +43,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdBuildShop())
         self.add(CmdEnterDungeon())
         self.add(MakeDRC())
+        self.add(Engage())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
