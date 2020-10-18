@@ -48,11 +48,11 @@ non-existent object the prompt will suggest the player create it if desired.
     * this is stand in for better externalities in the future 
 * record it all
     * Create a string along these lines: 
-    On <date/time> <character> encountered <obstacle> in <dungeon>. They
-    <approach> -ed it by <approach action description>. This was a
-    <success/failure> because <sucess/failure explanation>. [optional: 
-    <character> was affected by <pre-existing condition or status>.]
-    As a consequence <character>  is now <character consequence> [<condition>].
-    [And <obstacle> is <obstacle consequence>]
-    [And <externalitiy].
+    On (date/time) (character) encountered (obstacle) in (dungeon). They
+    (approach) -ed it by (approach action description). This was a
+    (success/failure) because (sucess/failure explanation). 
+    [(character) was affected by (pre-existing condition or status).]
+    As a consequence (character)  is now (character consequence) [(condition)].
+    [And (obstacle) is (obstacle consequence)]
+    [And (externalitiy)].
 
