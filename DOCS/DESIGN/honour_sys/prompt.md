@@ -27,4 +27,32 @@ players have builder privileges. For example if the player targets a
 non-existent object the prompt will suggest the player create it if desired.
 
 ## Model A prompt features
-1
+* callable command with aliases - 
+* takes a target 
+* no target = usage info
+* ask user to describe the approach
+* ask user to decide on success
+* pass/fail/roll 
+* for "roll" ask user for dice size and number and EITHER 
+    * ask for target number in advance OR
+    * roll, show result and ask player to interpret.
+    * in either event follow b
+* After pass/fail is decided ask for explanation.
+* ask for a reference ie. an existing or new status that explains success or
+  failure
+* Ask user for consequences: 
+    * none
+    * condition/status update
+    * externality
+* unlock the object that was engaged
+    * this is stand in for better externalities in the future 
+* record it all
+    * Create a string along these lines: 
+    On <date/time> <character> encountered <obstacle> in <dungeon>. They
+    <approach> -ed it by <approach action description>. This was a
+    <success/failure> because <sucess/failure explanation>. [optional: 
+    <character> was affected by <pre-existing condition or status>.]
+    As a consequence <character>  is now <character consequence> [<condition>].
+    [And <obstacle> is <obstacle consequence>]
+    [And <externalitiy].
+
